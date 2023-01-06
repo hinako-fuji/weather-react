@@ -1,37 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 
-import Summary from "./Summary";
+import axios from "axios";
 
-export default function Weather() {
-  let form = (
-    <div className="search">
-      <form id="search-form">
-        <div className="row">
-          <div className="col-sm-9">
-            <input
-              type="search"
-              placeholder="Enter a city..."
-              class="form-control"
-              id="city-input"
-              autocomplete="off"
-            />
+import "./Weather.css";
+
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      date: new Date(response.data.time * 1000),
+      temperature: response.data.temperature.current,
+      description: response.data.condition.description,
+
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+      icon: response.data.condition.icon,
+    });
+  }
+
+  function search() {
+    const apiKey = "c84t0fbaeda3af7ob8b93015bc5128b8";
+
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric&key=${apiKey}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-sm-9">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                className="form-control"
+                id="city-input"
+                autoComplete="off"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div className="col-sm-3">
+              <input
+                type="submit"
+                value="Search"
+                className="search-btn btn w-100"
+              />
+            </div>
           </div>
-          <div className="col-sm-3">
-            <input
-              type="submit"
-              value="Search"
-              class="search-button btn btn-search w-100"
-            />
-          </div>
-        </div>
-      </form>
-    </div>
-  );
-
-  return (
-    <div>
-      {form}
-      <Summary />
-    </div>
-  );
+        </form>
+        <WeatherInfo data={weatherData} />
+      </div>
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
