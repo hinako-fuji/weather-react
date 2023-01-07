@@ -1,13 +1,13 @@
 .app {
   max-width: 700px;
   margin: 50px auto;
+  font-family: "Lato", sans-serif;
 }
 
 .app-body {
   padding: 40px 50px;
   border-radius: 20px;
   box-shadow: rgb(0 0 0 / 17%) 0px 3px 9px;
-  text-transform: capitalize;
 }
 
 footer {
