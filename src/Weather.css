@@ -1,33 +1,57 @@
+.weather {
+  color: #474747;
+  letter-spacing: 0.02em;
+}
+
+.weather .form-control {
+  height: 40px;
+  color: #474747;
+  letter-spacing: 0.02em;
+}
+
+.weather .form-control:focus {
+  border-color: #4da4ea;
+  box-shadow: 0 0 0 0.25rem rgb(77 164 234 / 17%);
+}
 .weather .btn {
-  background: #6495ed;
+  background: #4da4ea;
   color: white;
   border: none;
   font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.02em;
+}
+
+.weather .btn:hover {
+  background: #4994d1;
 }
 
 .weather h1 {
   font-weight: 700;
 }
 
-.summary {
-  padding: 30px 0;
+.weather .summary {
+  padding: 40px 0;
 }
 
-.summary ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+.weather .summary-details {
+  margin: 10px 0;
 }
 
-.current-main {
+.weather .data-numbers {
+  color: #4da4ea;
+}
+
+.weather .current-main {
   text-align: center;
   margin-top: 10px;
 }
 
-.current-main canvas {
+.weather .current-main canvas {
   vertical-align: middle;
 }
-.current-temp {
+
+.weather .current-temp {
   font-size: 70px;
   vertical-align: middle;
   line-height: 70px;
@@ -35,7 +59,7 @@
   font-weight: 700;
 }
 
-.units {
+.weather .units {
   font-size: 16px;
   position: relative;
   top: -15px;
@@ -43,10 +67,11 @@
   margin-left: 5px;
 }
 
-.units a {
-  color: #6495ed;
+footer a {
+  color: #4da4ea;
+  letter-spacing: 0.02em;
 }
 
-footer a {
-  color: #6495ed;
+footer a:hover {
+  color: #4994d1;
 }
