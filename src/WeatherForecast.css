@@ -1,6 +1,5 @@
 .WeatherForecast {
   text-align: center;
-  padding: 20px 0;
 }
 
 .WeatherForecast canvas {
@@ -8,11 +7,18 @@
 }
 
 .WeatherForecast-temp {
-  color: #4da4ea;
   font-weight: 600;
+  font-size: 16px;
 }
 
 .WeatherForecast-temp-min {
   opacity: 0.6;
   margin-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .WeatherForecast-temp {
+    font-weight: 600;
+    font-size: 15px;
+  }
 }
