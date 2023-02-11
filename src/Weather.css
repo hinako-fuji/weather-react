@@ -10,11 +10,11 @@
 }
 
 .weather .form-control:focus {
-  border-color: #4da4ea;
+  border-color: #61a4bc;
   box-shadow: 0 0 0 0.25rem rgb(77 164 234 / 17%);
 }
 .weather .btn {
-  background: #4da4ea;
+  background: #61a4bc;
   color: white;
   border: none;
   font-weight: 700;
@@ -24,7 +24,7 @@
 }
 
 .weather .btn:hover {
-  background: #4994d1;
+  background: #61a4bc;
 }
 
 .weather h1 {
@@ -73,11 +73,11 @@ footer {
 }
 
 footer a {
-  color: #4da4ea;
+  color: #61a4bc;
 }
 
 footer a:hover {
-  color: #4994d1;
+  color: #61a4bc;
 }
 
 @media (max-width: 768px) {
